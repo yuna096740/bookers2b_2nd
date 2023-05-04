@@ -23,7 +23,7 @@
             <ul class="navbar-nav ml-auto">
               <% if user_signed_in? %>
                 <li class="nav-item">
-                  <%= link_to "Home", users_path(current_user),class:"nav-link text-light" %>
+                  <%= link_to "Home", books_path,class:"nav-link text-light" %>
                 </li>
                 <li class="nav-item">
                   <%= link_to "Users", root_path,class:"nav-link text-light" %>
@@ -36,7 +36,7 @@
                 </li>
               <% else %>
                 <li class="nav-item">
-                  <%= link_to "Home", about_path,class:"nav-link text-light" %>
+                  <%= link_to "Home", books_path,class:"nav-link text-light" %>
                 </li>
                 <li class="nav-item">
                   <%= link_to "About", about_path,class:"nav-link text-light" %>

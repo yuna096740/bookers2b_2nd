@@ -1,5 +1,26 @@
-<%= render'template', book:@book %>
-<h2>Book detail</h2>
-
-
-  
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <%= render'template', book:@book,user:current_user %>
+    </div>
+    <div class="col-md-8 offset-md-1">
+      <h2>Book detail</h2>
+      <table>
+          <tr>
+            <th>Title</th>
+            <th>Opinion</th>
+          </tr>
+          <tr>
+            <th><%= image_tag @book.user.icon(100,100) %><br>
+                <%= @book.user.name %></th>
+            <th><%= @book.title %></th>
+            <th><%= @book.body %></th>
+            <% if @book.user == current_user %>
+              <th><%= link_to "Edit",edit_book_path(@book.id) %></th>
+              <th><%= link_to "Delete",book_path,method: :delete %></th>
+            <% end %>
+          </tr>
+      </table>
+    </div>
+  </div>
+</div>

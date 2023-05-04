@@ -1,16 +1,25 @@
-<%= render'template', book:@book %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
 
-<h1>Books (すべてのユーザーの投稿一覧）</h1>
-<% @books.each do |book| %>
-  <table>
-    <tr>
-      <th>Title</th>
-      <th>Opinion</th>
-    </tr>
-    <tr>
-      <th><%= image_tag book.user.icon %></th>
-      <th><%= book.title %></th>
-      <th><%= book.body %></th>
-    </tr>
-  </table>
-<% end %>
+      <%= render'template', book:@book,user:current_user %>
+    </div>
+    <div class="col-md-8 offset-md-1">
+    <h1>Books (すべてのユーザーの投稿一覧）</h1>
+      <% @books.each do |book| %>
+        <table>
+          <tr>
+            <th>Title</th>
+            <th>Opinion</th>
+          </tr>
+          <tr>
+            <th><%= image_tag book.user.icon(100,100) %><br>
+                <%= link_to book.user.name, user_path(book.user.id) %></th>
+            <th><%= link_to book.title, book_path(book.id) %></th>
+            <th><%= book.body %></th>
+          </tr>
+        </table>
+      <% end %>
+    </div>
+  </div>
+</div>
