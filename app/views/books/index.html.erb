@@ -1,0 +1,16 @@
+<%= render'template', book:@book %>
+
+<h1>Books (すべてのユーザーの投稿一覧）</h1>
+<% @books.each do |book| %>
+  <table>
+    <tr>
+      <th>Title</th>
+      <th>Opinion</th>
+    </tr>
+    <tr>
+      <th><%= image_tag book.user.icon %></th>
+      <th><%= book.title %></th>
+      <th><%= book.body %></th>
+    </tr>
+  </table>
+<% end %>
