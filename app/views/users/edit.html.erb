@@ -1,2 +1,18 @@
-<h1>ユーザーのプロフ編集画面</h1>
-
+<div class="container">
+  <div class="row">
+    <div class="col-md-5 mx-auto py-5">
+    <h2>User info</h2>
+      <%= form_with model: @user do |f| %>
+        <div class="form-group">
+         <p>Name
+         <%= f.text_field:name,class:"form-control" %></p>
+         <p>Image
+         <%= f.file_field:profile_image,placeholder:"ファイルを選択",accept:"image/*" %></p>
+         <p>Introduction
+         <%= f.text_area:introduction,rows:"3",class:"form-control" %></p>
+         <%= f.submit"Update User" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
