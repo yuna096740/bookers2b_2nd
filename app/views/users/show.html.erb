@@ -1,3 +1,54 @@
-<%= render'books/template', book:@book,user:@user %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <h2>User info</h2>
+       <%= image_tag @user.icon(100,100) %>
+       <table>
+         <tr>
+           <th>name</th>
+           <th><%= @user.name %></th>
+         </tr>
+         <tr>
+           <th>introduction</th>
+           <th><%= @user.introduction %></th>
+         </tr>
+       </table>
+        <% if @user.id == current_user.id %>
+          <%= link_to "編集", edit_user_path(current_user.id) %>
+        <% else %>
+          <%= link_to "編集", user_path(current_user.id) %>
+        <% end %>
 
-<p>ユーザーのプロフ詳細画面</p>
+        <h2>New Book</h2>
+        <%= form_with model: @book do |f| %>
+          <h4>Title</h4>
+            <%= f.text_field :title %>
+          <h4>Opinion</h4>
+            <%= f.text_area :body %><br />
+              <%= f.submit "Create Book" %>
+        <% end %>
+    </div>
+
+    <div class="col-md-8 offset-md-1">
+      <h2>Books</h2>
+        <table>
+          <tr>
+            <th>Title</th>
+            <th>Opinion</th>
+          </tr>
+          <% @books.each do |book| %>
+            <tr>
+              <th><%= image_tag book.user.icon(80,80) %></th>
+              <th><%= book.title %></th>
+              <th><%= book.body %></th>
+              <% if @book.user == current_user %>
+                <th><%= link_to "Edit",edit_book_path(@book.id) %></th>
+                <th><%= link_to "Delete",book_path,method: :delete %></th>
+              <% end %>
+            </tr>
+          <% end %>
+        </table>
+    </div>
+  </div>
+</div>
+
