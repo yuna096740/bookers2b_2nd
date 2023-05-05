@@ -1,16 +1,24 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-5 mx-auto py-5">
+    <div class="col-md-5 mx-auto pt-3">
     <h2>User info</h2>
+    <% if @user.errors.any? %>
+      <h3><%= pluralize(@user.errors.count,"error") %>prohibited this obj from being saved:</h3><br />
+        <ul>
+          <% @user.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+    <% end %>
       <%= form_with model: @user do |f| %>
         <div class="form-group">
          <p>Name
          <%= f.text_field:name,class:"form-control" %></p>
-         <p>Image
+         <p>Image<br />
          <%= f.file_field:profile_image,placeholder:"ファイルを選択",accept:"image/*" %></p>
          <p>Introduction
-         <%= f.text_area:introduction,rows:"3",class:"form-control" %></p>
-         <%= f.submit"Update User" %>
+         <%= f.text_area:introduction,class:"form-control" %></p>
+         <%= f.submit"Update User",class:"btn btn-secondary" %>
         </div>
       <% end %>
     </div>

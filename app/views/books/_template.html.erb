@@ -1,23 +1,30 @@
 <h2>User info</h2>
-
- <%= image_tag user.icon(100,100) %>
- <table>
-   <tr>
-     <th>name</th>
-     <th><%= user.name %></th>
-   </tr>
-   <tr>
-     <th>introduction</th>
-     <th><%= user.introduction %></th>
-   </tr>
+  <%= image_tag user.icon(100,100) %>
+ <table class="table">
+      <tr></tr>
+      <tr>
+        <th>name</th>
+        <th><%= user.name %></th>
+      </tr>
+      <tr>
+       <th>introduction</th>
+       <th><%= user.introduction %></th>
+      </tr>
  </table>
- <%= link_to "編集", edit_user_path(user.id) %>
-
-<h2>New Book</h2>
-  <%= form_with model: book do |f| %>
-    <h4>Title</h4>
-      <%= f.text_field :title %>
-    <h4>Opinion</h4>
-      <%= f.text_area :body %><br />
-    <%= f.submit "Create Book" %>
+  <%= link_to edit_user_path(user.id),class:"btn btn-outline-secondary btn-block" do %>
+   <i class="fas fa-user-cog"></i>
   <% end %>
+<div class="form-group mt-3">
+  <h2>New Book</h2>
+  <%= form_with model: book do |f| %>
+    <div class="form">
+      <p class="mb-1 mt-3">Title</p>
+      <%= f.text_field :title,class:"form-control" %>
+    </div>
+    <div class="form">
+      <p class="mb-1 mt-3">Opinion</p>
+      <%= f.text_area :body, class:"form-control" %><br />
+      <%= f.submit "Create Book", class:"btn btn-success text-white" %>
+    </div>
+  <% end %>
+</div>

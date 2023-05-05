@@ -1,12 +1,25 @@
 <div class="container">
-  <h1>Editing Book</h1>
-  <%= form_with model: @book do |f| %>
-    <p>Title</p>
-    <%= f.text_field:title %>
-    <p>Opinion</p>
-    <%= f.text_area:body %><br />
-    <%= f.submit "Update Book" %>
-  <% end %>
-  <%= link_to "Show", book_path(@book.id) %> |
-  <%= link_to "Back", books_path %>
+  <div class="row">
+    <div class="col-md-5 mx-auto pt-3">
+      <h1>Editing Book</h1>
+        <% if @book.errors.any? %>
+          <h3><%= pluralize(@book.errors.count,"error") %>prohibited this obj from being saved:</h3><br />
+            <ul>
+              <% @book.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+        <% end %>
+
+      <%= form_with model: @book do |f| %>
+        <p>Title
+        <%= f.text_field:title,class:"form-control" %></p>
+        <p>Opinion
+        <%= f.text_area:body,class:"form-control mb-0" %></p><br />
+        <%= f.submit "Update Book",class:"btn btn-success text-white mb-3 mt-0" %>
+      <% end %>
+      <%= link_to "Show", book_path(@book.id) %> |
+      <%= link_to "Back", books_path %>
+    </div>
+  </div>
 </div>

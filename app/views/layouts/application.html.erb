@@ -70,6 +70,9 @@
         </div>
       </nav>
     </header>
+    <div class="text-success p-3">
+      <%= flash[:notice] %>
+    </div>
     <%= yield %>
     <footer>
       <div class="container mt-5">

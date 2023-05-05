@@ -1,18 +1,15 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-3">
-      <%= render'template', book:@book,user:@book.user %>
+    <div class="col-md-3 mt-3">
+      <%= render'template', book:@book_new,user:@book.user %>
     </div>
-    <div class="col-md-8 offset-md-1">
+    <div class="col-md-8 offset-md-1 mt-3">
       <h2>Book detail</h2>
-      <table>
-          <tr>
-            <th>Title</th>
-            <th>Opinion</th>
-          </tr>
+      <table class="table">
+        <tbody>
           <tr>
             <th><%= image_tag @book.user.icon(100,100) %><br>
-                <%= @book.user.name %></th>
+                <%= link_to @book.user.name,user_path(@book.user_id) %></th>
             <th><%= @book.title %></th>
             <th><%= @book.body %></th>
             <% if @book.user == current_user %>
@@ -20,6 +17,7 @@
               <th><%= link_to "Delete",book_path,method: :delete %></th>
             <% end %>
           </tr>
+        </tbody>
       </table>
     </div>
   </div>
