@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container mt-3">
 <h2>Log in</h2>
 
 <%= form_with model: @user, url: user_session_path do |f| %>
@@ -20,7 +20,7 @@
   <% end %>
 
   <div class="actions">
-    <%= f.submit "Log in" %>
+    <%= f.submit "Log in",class:"btn btn-primary text-white" %>
   </div>
 <% end %>
 
