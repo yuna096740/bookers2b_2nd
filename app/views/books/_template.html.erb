@@ -15,7 +15,7 @@
    <i class="fas fa-user-cog"></i>
   <% end %>
 <div class="form-group mt-3">
-  <h2>New Book</h2>
+  <h2>New book</h2>
   <%= form_with model: book do |f| %>
     <div class="form">
       <p class="mb-1 mt-3">Title</p>
@@ -24,7 +24,7 @@
     <div class="form">
       <p class="mb-1 mt-3">Opinion</p>
       <%= f.text_area :body, class:"form-control" %><br />
-      <%= f.submit "Create Book", class:"btn btn-success text-white" %>
+      <%= f.submit "Create Book", class:"btn btn-success" %>
     </div>
   <% end %>
 </div>
