@@ -20,7 +20,12 @@
           </tr>
         </tbody>
       </table>
-      <%= render 'book_comments/bookComment', book: @book, book_comment: @book_comment %>
+      <div id="comment">
+        <%= render 'book_comments/bookComment', book: @book %>
+      </div>
+      <div id="form">
+        <%= render 'book_comments/form', book: @book, comment: @comment %>
+      </div>
     </div>
   </div>
 </div>
