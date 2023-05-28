@@ -12,6 +12,7 @@
                 <%= link_to @book.user.name,user_path(@book.user_id) %></th>
             <th><%= @book.title %></th>
             <th><%= @book.body %></th>
+            <th id="comment_count">コメント数：<%= @book.book_comments.count %></th>
             <td class="favorite_<%= @book.id %>"><%= render 'favorites/favorite', book: @book %></td>
             <% if @book.user == current_user %>
               <th><%= link_to "Edit",edit_book_path(@book.id),class:"btn btn-success" %></th>
