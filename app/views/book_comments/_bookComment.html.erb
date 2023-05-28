@@ -1,0 +1,26 @@
+<% if book.book_comments.exists? %>
+  <table class="table my-3">
+  <tr>
+    <th></th>
+    <th>User</th>
+    <th>Comment</th>
+    <th></th>
+  </tr>
+  <% book.book_comments.each do |comment| %>
+    <tr>
+      <td><%= image_tag comment.user.icon(60,60) %></td>
+      <td><%= link_to comment.user.name %></td>
+      <td><%= comment.comment %></td>
+      <% if comment.user_id == current_user.id %>
+        <td><%= link_to 'Destroy', book_book_comment_path(comment.book_id, comment.id), method: :delete, class:"btn btn-danger" %></td>
+      <% end %>
+      </tr>
+    <% end %>
+  </table>
+<% end %>
+<div class="form-group">
+  <%= form_with model: [book, book_comment] do |f| %>
+    <%= f.text_area :comment, rows:'5', placeholder: "コメントはここに", class:"form-control" %>
+    <%= f.submit class:"btn btn-success mt-2" %>
+  <% end %>
+</div>

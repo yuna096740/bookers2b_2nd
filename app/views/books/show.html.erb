@@ -12,6 +12,7 @@
                 <%= link_to @book.user.name,user_path(@book.user_id) %></th>
             <th><%= @book.title %></th>
             <th><%= @book.body %></th>
+            <td class="favorite_<%= @book.id %>"><%= render 'favorites/favorite', book: @book %></td>
             <% if @book.user == current_user %>
               <th><%= link_to "Edit",edit_book_path(@book.id),class:"btn btn-success" %></th>
               <th><%= link_to "Destroy",book_path,method: :delete ,class:"btn btn-danger",data: { confirm: "Are you sure?" } %></th>
@@ -19,6 +20,7 @@
           </tr>
         </tbody>
       </table>
+      <%= render 'book_comments/bookComment', book: @book, book_comment: @book_comment %>
     </div>
   </div>
 </div>
