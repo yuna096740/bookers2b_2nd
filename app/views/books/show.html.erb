@@ -24,7 +24,7 @@
       <div id="comment">
         <%= render 'book_comments/bookComment', book: @book %>
       </div>
-      <div id="form">
+      <div id="form_<%= @book.id %>">
         <%= render 'book_comments/form', book: @book, comment: @comment %>
       </div>
     </div>
