@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-3 mt-3">
-      <%= render'books/template', book:@book,user:current_user %>
+      <%= render'books/template', book: @book, user: current_user , following_users: @following_users, follower_users: @follower_users%>
     </div>
     <div class="col-md-8 offset-md-1 mt-3">
       <h2>Users</h2>
@@ -10,6 +10,7 @@
             <tr>
               <th>image</th>
               <th>name</th>
+              <th></th>
               <th></th>
             </tr>
           </thead>

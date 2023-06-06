@@ -11,9 +11,19 @@
        <th><%= user.introduction %></th>
       </tr>
  </table>
-  <%= link_to edit_user_path(user.id),class:"btn btn-outline-secondary btn-block" do %>
-   <i class="fas fa-user-cog"></i>
+
+  <% if current_user == user %>
+    <%= link_to edit_user_path(user.id),class:"btn btn-outline-secondary btn-block" do %>
+      <i class="fas fa-user-cog"></i>
+    <% end %>
+  <% else %>
+    <div class="follow_btn">
+      <%= render "relationships/follow_btn", user: user %>
+    </div>
   <% end %>
+  
+  <%= render 'relationships/follow_count', user: user, following_users: @following_users, follower_users: @follower_users %>
+
 <div class="form-group mt-3">
   <h2>New book</h2>
   <%= form_with model: book do |f| %>
