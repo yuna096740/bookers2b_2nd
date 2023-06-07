@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-10">
+      <% if @users.exists? %>
+      <h4>Follow Users</h4>
+        <table class="table">
+          <tr>
+            <th></th>
+            <th>Name</th>
+            <th>Follow</th>
+             <th>Follower</th>
+            <th></th>
+          </tr>
+          <% @users.each do |user| %>
+            <tr>
+              <td><%= image_tag user.icon(80,80) %></td>
+              <td><%= user.name %></td>
+              <td><%= link_to user.following_user.count, follows_user_relationships_path(user.id) %></td>
+              <td><%= link_to user.follower_user.count, followers_user_relationships_path(user.id) %></td>
+              <td><%= link_to "Show", user_path(user.id) %></td>
+            </tr>
+          <% end %>
+        </table>
+      <% else %>
+        <p>ユーザーはいません</p>
+      <% end %>
+    </div>
+  </div>
+</div>

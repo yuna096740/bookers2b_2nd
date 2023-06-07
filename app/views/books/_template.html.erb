@@ -22,7 +22,20 @@
     </div>
   <% end %>
   
-  <%= render 'relationships/follow_count', user: user, following_users: @following_users, follower_users: @follower_users %>
+  <table class="table">
+  <tr>
+    <th>follow</th>
+    <th id="follow_count">
+      <%= render 'relationships/follow_count', user: user %>
+    </th>
+  </tr>
+  <tr>
+    <th>follower</th>
+    <th id="follower_count">
+      <%= render 'relationships/follower_count', user: user %>
+    </th>
+  </tr>
+</table>
 
 <div class="form-group mt-3">
   <h2>New book</h2>

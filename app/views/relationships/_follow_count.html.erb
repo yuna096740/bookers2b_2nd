@@ -1,10 +1,1 @@
-<table class="table">
-  <tr>
-    <th>follow</th>
-    <th class ="follow_count"><%= following_users.count %></th>
-  </tr>
-  <tr>
-    <th>follower</th>
-    <th class="follower_count"><%= follower_users.count %></th>
-  </tr>
-</table>
+<%= link_to user.following_user.count, follows_user_relationships_path(user.id)  %>
