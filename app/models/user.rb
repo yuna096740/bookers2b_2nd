@@ -42,5 +42,9 @@ class User < ApplicationRecord
   def following?(user)
     following_user.include?(user)
   end
+  
+  def self.search(keyword)
+    where(["name Like? OR introduction Like?", "%#{keyword}%", "%#{keyword}%"])
+  end
 
 end

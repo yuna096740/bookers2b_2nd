@@ -10,7 +10,8 @@ Rails.application.routes.draw do
       end
     end
   end
-  get "search" => "searches#search"
+  get "search_book" => "searches#searchBook"
+  get "search_user" => "searches#searchUser"
 
   resources:books, only:[:index,:edit,:show,:create,:destroy,:update] do
     resource:favorites, only: [:create,:destroy]

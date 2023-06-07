@@ -12,14 +12,14 @@
 <div class="container">
   <div class="row">
     <div class="col-md-3 mt-3">
-      <%= render'template', book:@book,user:current_user %>
+      <%= render'template', book: @book, user: current_user %>
     </div>
 
     <div class="col-md-8 offset-md-1 mt-3">
 
       <h2>Books</h2>
       <div class="float-right">
-        <%= render 'searches/search' %>
+        <%= render 'searches/search_Book' %>
       </div>
         <table class="table">
           <thead>
