@@ -3,7 +3,7 @@
     <i class="fas fa-heart"></i><%= book.favorites.count %>
   <% end %>
 <% else %>
-  <%= link_to book_favorites_path(book), class:"text-secondary", method: :post, remote: true do %>
+  <%= link_to book_favorites_path(book), class:"text-info", method: :post, remote: true do %>
     <i class="fas fa-heart"></i><%= book.favorites.count %>
   <% end %>
 <% end %>

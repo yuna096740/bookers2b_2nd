@@ -8,4 +8,9 @@ class Book < ApplicationRecord
    def favorited_by?(user)
      favorites.exists?(user_id: user.id)
    end
+
+  def self.search(keyword)
+    where(["title Like? OR body Like?", "%#{keyword}%", "%#{keyword}%"])
+  end
+
 end

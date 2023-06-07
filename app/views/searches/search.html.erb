@@ -1,25 +1,14 @@
-<div class="ml-5">
-  <% if @book.errors.any? %>
-    <h3><%= pluralize(@book.errors.count,"error") %>prohibited this obj from being saved:</h3><br />
-      <ul>
-        <% @book.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-  <% end %>
-</div>
-
 <div class="container">
   <div class="row">
     <div class="col-md-3 mt-3">
-      <%= render'template', book:@book,user:current_user %>
+      <%= render'books/template', book: @book,user: current_user %>
     </div>
 
     <div class="col-md-8 offset-md-1 mt-3">
 
-      <h2>Books</h2>
+      <h2>Books 検索結果</h2>
       <div class="float-right">
-        <%= render 'searches/search' %>
+        <%= link_to "戻る", :back %>
       </div>
         <table class="table">
           <thead>
