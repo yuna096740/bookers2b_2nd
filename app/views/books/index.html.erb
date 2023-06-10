@@ -28,6 +28,7 @@
               <th>Title</th>
               <th>Opinion</th>
               <th></th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
@@ -37,6 +38,7 @@
                     <%= link_to book.user.name, user_path(book.user.id) %></td>
                 <td><%= link_to book.title, book_path(book.id) %></td>
                 <td><%= book.body %></td>
+                <th>コメント数：<%= book.book_comments.count %></th>
                 <td class="favorite_<%= book.id %>"><%= render 'favorites/favorite', book: book %></td>
               </tr>
             <% end %>

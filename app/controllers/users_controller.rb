@@ -25,8 +25,24 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @book = Book.new
     @books = @user.books
-  end
 
+    @todayBook = @books.created_today
+    @yesterdayBook = @books.created_yesterday
+    @thisWeekBook = @books.created_this_week
+    @lastWeekBook = @books.created_last_week
+
+    if @yesterdayBook.count == 0
+      @theDayBefore = "前日の投稿はなし"
+    else
+      @theDayBefore = @todayBook.count / @yesterdayBook.count * 100.round + "%"
+    end
+
+    if @lastWeekBook.count == 0
+      @theWeekBefore = "前週の投稿はなし"
+    else
+      @theWeekBefore = @thisWeekBook.count / @lastWeekBook.count * 100.round + "%"
+    end
+  end
 
   private
 
