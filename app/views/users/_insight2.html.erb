@@ -1,4 +1,5 @@
-<table class="table table-border">
+<h4>７日間分の投稿数</h4>
+<table class="table table-bordered">
   <tr>
     <th>6日前</th>
     <th>5日前</th>
@@ -9,12 +10,8 @@
     <th>今日</th>
   </tr>
   <tr>
-    <th></th>
-    <th></th>
-    <th></th>
-    <th></th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <% books.book_week_count.each do |count| %>
+      <th><%= count %></th>
+    <% end %>
   </tr>
 </table>

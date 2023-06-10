@@ -26,15 +26,13 @@ class UsersController < ApplicationController
     @book = Book.new
     @books = @user.books
 
-    @todayBook = @books.created_today
-    @yesterdayBook = @books.created_yesterday
     @thisWeekBook = @books.created_this_week
     @lastWeekBook = @books.created_last_week
 
-    if @yesterdayBook.count == 0
+    if @books.created_each_date(1).count == 0
       @theDayBefore = "前日の投稿はなし"
     else
-      @theDayBefore = @todayBook.count / @yesterdayBook.count * 100.round + "%"
+      @theDayBefore = @books.created_each_date(0).count / @books.created_each_date(1).count * 100.round + "%"
     end
 
     if @lastWeekBook.count == 0

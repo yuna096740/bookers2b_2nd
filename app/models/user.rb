@@ -44,7 +44,7 @@ class User < ApplicationRecord
   end
   
   def self.search(keyword)
-    where(["name Like? OR introduction Like?", "%#{keyword}%", "%#{keyword}%"])
+    where(["name LIKE? OR introduction LIKE?", "%#{keyword}%", "%#{keyword}%"])
   end
 
 end

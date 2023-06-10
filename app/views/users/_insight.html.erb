@@ -6,8 +6,8 @@
     <th>前日比</th>
   </tr>
   <tr>
-    <td><%= todayBook.count %></td>
-    <td><%= yesterdayBook.count %></td>
+    <td><%= books.created_each_date(0).count %></td>
+    <td><%= books.created_each_date(1).count %></td>
     <td><%= theDayBefore %></td>
   </tr>
 </table>

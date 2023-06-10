@@ -27,7 +27,8 @@
             <% end %>
           </tbody>
         </table>
-        <%= render 'insight',  todayBook:  @todayBook, yesterdayBook: @yesterdayBook, thisWeekBook: @thisWeekBook, lastWeekBook: @lastWeekBook, theDayBefore: @theDayBefore, theWeekBefore: @theWeekBefore%>
+        <%= render 'insight',books: @books, thisWeekBook: @thisWeekBook, lastWeekBook: @lastWeekBook, theDayBefore: @theDayBefore, theWeekBefore: @theWeekBefore%>
+        <%= render 'insight2', books: @books %>
     </div>
   </div>
 </div>
