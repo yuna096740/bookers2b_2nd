@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources:users, only:[:index,:edit,:show,:update] do
+    get "searchBookCount" => "users#searchBookCount"
     resource :relationships, only: [:create, :destroy] do
       member do
         get :follows, :followers

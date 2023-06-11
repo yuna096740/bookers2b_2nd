@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-3 mt-3">
+      <%= render'books/template', book: @book, user: current_user %>
+    </div>
+    <div class="col-md-8 offset-md-1 mt-3">
+      <h2>Users 検索結果</h2>
+      <div class="float-right">
+        <%= link_to "戻る", :back %>
+      </div>
+      <%= render 'search_Book_Count', books: @books,searchBook: @searchBook %>
+    </div>
+  </div>
+</div>
